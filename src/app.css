@@ -1,0 +1,33 @@
+/* Override the main calendar container */
+.react-calendar {
+    border: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50vh;
+    height: 18rem;  
+}
+  
+  /* Change the calendar tiles (dates) */
+.react-calendar__tile {
+    background-color:#f9f9f9;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+  
+.react-calendar__tile:enabled:hover {
+    background-color: #ff7272 !important;
+    color: white;
+}
+
+.react-calendar__tile--active {
+    background-color:#dc2626 !important;
+    color: white;
+}
+
+
+.react-calendar__navigation button:disabled {
+    color: #ccc;
+  }
+  
+
+  
