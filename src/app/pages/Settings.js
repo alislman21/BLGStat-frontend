@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Settings() {
     const navigate = useNavigate();
@@ -132,7 +132,7 @@ function Settings() {
                                 value={form.username} 
                                 onChange={handleChange} 
                                 readOnly={!readOnlyInput}
-                                className="shadow-md block w-full m-1 p-2 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-red-600 transition duration-300"
+                                className=" border-2 border-gray-300 block w-full m-1 p-2 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-red-600 transition duration-300"
                             />
                         </div>
                         <div className="mb-4">
@@ -144,7 +144,7 @@ function Settings() {
                                 value={form.firstname} 
                                 onChange={handleChange} 
                                 readOnly={!readOnlyInput}
-                                className="shadow-md block w-full m-1 p-2 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-red-600 transition duration-300"
+                                className="border-2 border-gray-300 block w-full m-1 p-2 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-red-600 transition duration-300"
                             />
                         </div>
                         <div className="mb-4">
@@ -156,7 +156,7 @@ function Settings() {
                                 value={form.lastname} 
                                 onChange={handleChange} 
                                 readOnly={!readOnlyInput}
-                                className="shadow-md block w-full m-1 p-2 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-red-600 transition duration-300"
+                                className="border-2 border-gray-300 block w-full m-1 p-2 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-red-600 transition duration-300"
                             />
                         </div>
                         <div className="mb-4">

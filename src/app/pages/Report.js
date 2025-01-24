@@ -4,10 +4,6 @@ import axios from "axios";
 import { ReportAreaChart, ReportSection } from "../components/report.component";
 
 export default function Report() {
-    // Get current month and year
-    
-
-    
     const [lastInstagramReport, setLastInstagramReport] = useState()
     const [beforeLastInstagramReport,setBeforeLastInstagramReport] = useState()
     const [lastTwitterReport, setLastTwitterReport] = useState()
@@ -76,6 +72,7 @@ export default function Report() {
                         Fetch New Report
                     </button>
                 </div>
+                <p className="text-2xl text-red-600 m-2 mt-5 text-center">Instagram Report</p>
                 {
                     lastInstagramReport ?
                     <div className="flex justify-center items-center gap-5 w-full">
@@ -94,9 +91,11 @@ export default function Report() {
                             />
                     </div>
                 }
+
+                <p className="text-2xl text-red-600  mt-16 text-center">Twitter Report</p>
                 {
                     lastTwitterReport ?
-                    <div className="flex justify-center items-center gap-5 w-full my-16">
+                    <div className="flex justify-center items-center gap-5 w-full">
                         <ReportAreaChart Report={lastTwitterReport} prevReport={beforeLastTwitterReport} />
                         <ReportSection
                             lastReport={lastTwitterReport}
@@ -104,7 +103,7 @@ export default function Report() {
                         />
                     </div>
                         :
-                    <div className="flex justify-between items-center gap-5 w-full my-16">
+                    <div className="flex x justify-center items-center gap-5 w-full">
                         <ReportAreaChart Report={lastTwitterReport} prevReport={beforeLastTwitterReport} />
                         <ReportSection
                             lastReport={0}

@@ -32,13 +32,13 @@ export function ReportSection({lastReport, prevReport}) {
 
     return (
         <div
-            className="flex flex-col justify-center items-center m-2 p-2 w-1/2 h-auto bg-gray-50 rounded-xl shadow-lg border border-gray-200">
-            <p className="mb-10 text-3xl text-red-600 font-bold">
+            className="flex flex-col justify-center items-center m-2 p-2 w-1/2 h-auto rounded-xl border border-red-600">
+            <p className="mb-10 text-3xl text-gray-400 font-bold">
                 {lastReport.platform} Report for {month}
             </p>
             <div className="grid grid-cols-2 gap-6 w-full h-fit mb-6">
-                 <span className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md border border-gray-300">
-                    <p className="text-gray-500 font-semibold">Followers</p>
+                 <span className="flex flex-col items-center bg-white p-4 border rounded-lg">
+                    <p className=" font-semibold">Followers</p>
                     <p className="text-lg text-gray-800">{lastReport.followers}</p>
                     <div className="w-full bg-gray-200 rounded-full h-3 mt-2">
                         <div className="bg-red-500 h-3 rounded-full"

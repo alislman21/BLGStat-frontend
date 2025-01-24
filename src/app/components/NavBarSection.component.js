@@ -1,6 +1,7 @@
-import {ChevronFirst, ChevronLast, MoreVertical} from 'lucide-react';
+import {ChevronFirst, ChevronLast} from 'lucide-react';
 import {createContext, useContext, useEffect, useState} from 'react';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const SidebarContext = createContext();
 
@@ -21,7 +22,6 @@ export function NavBarSection({children}) {
                 });
 
                 const user = res.data.data.user
-
                 setUser(user)
             } catch (error) {
                 console.error('Error fetching profile data:', error);
@@ -59,9 +59,7 @@ export function NavBarSection({children}) {
                     >
                         {expanded ? <ChevronFirst/> : <ChevronLast/>}
                     </button>
-
                 </div>
-
                 <SidebarContext.Provider value={{expanded}}>
                     <ul className="flex-1 px-3 space-y-2">
                         {children}
@@ -71,7 +69,12 @@ export function NavBarSection({children}) {
                 <div className='border-t flex p-3 justify-between items-center'>
                     <h4 className={`overflow-hidden transition-all ${
                         expanded ? 'font-semibold text-red-600 text-2xl' : 'hidden'}`}>{user?.username}</h4>
-                    <MoreVertical size={20}/>
+                    <Link 
+                        to='/logout'
+                        className='bg-red-600 text-white p-1 rounded-lg'
+                    >
+                        Logout
+                    </Link>
                 </div>
             </nav>
         </aside>
@@ -90,15 +93,12 @@ export function NavBarItem({icon, text, active}) {
         }
              `}
         >
-
             {icon}
-
             <span className={`overflow-hidden transition-all ${
                 expanded ? ' w-52 ml-3' : 'hidden'}`}
             >
                 {text}
             </span>
-
             {!expanded && (
                 <di
                     className={`
@@ -111,8 +111,6 @@ export function NavBarItem({icon, text, active}) {
                     {text}
                 </di>
             )}
-
-
         </li>
     )
 }

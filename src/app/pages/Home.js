@@ -6,25 +6,6 @@ import axios from "axios";
 
 
 function Home() {
-    // some data to show the work of the Barchart 
-    const data = [
-        {
-            name: 'Likes',
-            Object1: 1222,
-            Object2: 222,
-        },
-        {
-            name: 'Comments',
-            Object1: 300,
-            Object2: 360,
-        },
-        {
-            name: 'Views',
-            Object1: 1000,
-            Object2: 2000,
-        },
-    ];
-
     const [instagramProfile, setInstagramProfile] = useState({
         fullname: '',
         bio: '',
@@ -61,26 +42,20 @@ function Home() {
                 });
 
                 const dashboard = res.data.dashboard
-                console.log(dashboard);
-            
                 setInstagramProfile({
                     fullname: dashboard.latestInstagramInfo.full_name,
                     bio: dashboard.latestInstagramInfo.bio,
                     profile: dashboard.latestInstagramInfo.profile_picture,
                     followings: dashboard.latestInstagramInfo.followings,
                     followers: dashboard.latestInstagramInfo.followers
-                })
-
-               
+                });
                 setTwitterProfile({
                     fullname: dashboard.latestTwitterInfo.full_name,
                     bio: dashboard.latestTwitterInfo.bio,
                     profile: dashboard.latestTwitterInfo.profile_picture,
                     followings: dashboard.latestTwitterInfo.followings,
                     followers: dashboard.latestTwitterInfo.followers
-                })
-               
-               
+                });
                 setInstagramStatistics([
                     {
                         name: 'Likes',
@@ -97,9 +72,7 @@ function Home() {
                         Object1: dashboard.instagramStatistics.views.lastPost,
                         Object2: dashboard.instagramStatistics.views.previousPost,
                     },
-                ])
-          
-               
+                ]);
                 setTwitterStatistics([
                     {
                         name: 'Likes',
@@ -152,7 +125,7 @@ function Home() {
 
             <div className="ml-3 flex-grow overflow-y-scroll h-screen">
                 <div className="w-full  min-h-fit">
-                    <p className="text-red-600 text-2xl p-2 m-1 mt-5 bg-gray-100 rounded-md">Instagram Section</p>
+                    <p className="text-2xl text-red-600 m-2 mt-5 text-center">Instagram Information</p>
 
                     <div className="w-full min-h-fit flex justify-stretch">
                         <Post
@@ -165,7 +138,7 @@ function Home() {
                         />
                     </div>
 
-                    <p className="text-red-600 text-2xl p-2 m-1 mt-5 bg-gray-100 rounded-md">Twitter Section</p>
+                    <p className="text-2xl text-red-600 m-2 mt-5 text-center">Twetter Information</p>
                     <div className="w-full min-h-fit flex justify-stretch">
                         <Tweet 
                          tweet={lastTweet}
@@ -177,25 +150,22 @@ function Home() {
                         />
                     </div>
 
-
-                    <div className="w-full flex items-center justify-center gap-4 mt-8 ml-4">
-                        <div className="p-4 rounded-3xl shadow-2xl w-1/2">
-                            <p className="text-2xl p-1 text-slate-400">
-                                Instagram Post Statistics for {month} {year}
-                            </p>
-                            <BarChartComponent data={instagramStatistics}/>
+                  
+                    <p className=" text-2xl text-red-600 m-2 mt-5 text-center">Statistics Posts</p>
+                        <div className="w-full flex items-center justify-center gap-4 mt-8 ml-4">
+                            <div className="p-4 rounded-3xl shadow-2xl w-1/2">
+                                <p className="text-2xl p-1 text-slate-400">
+                                    Instagram Post Statistics for {month} {year}
+                                </p>
+                                <BarChartComponent data={instagramStatistics}/>
+                            </div>
+                            <div className="p-4 rounded-3xl shadow-2xl w-1/2">
+                                <p className="text-2xl p-1 text-slate-400">
+                                    Twitter Post Statistics for {month} {year}
+                                </p>
+                                <BarChartComponent data={twitterStatistics}/>
+                            </div>
                         </div>
-                        <div className="p-4 rounded-3xl shadow-2xl w-1/2">
-                            <p className="text-2xl p-1 text-slate-400">
-                                Twitter Post Statistics for {month} {year}
-                            </p>
-                            <BarChartComponent data={twitterStatistics}/>
-                        </div>
-
-
-                    </div>
-
-
                 </div>
             </div>
 
